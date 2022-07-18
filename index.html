@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>JavaScript HTML DOM</h2>
+
+    <div id="main">
+        <p>Finding HTML Elements by Tag Name</p>
+        <p>This example demonstrates the <b>getElementsByTagName</b> method.</p>
+
+        <button>Button 1</button>
+        <button>Button 2</button>
+    </div>
+
+    <p id="demo"></p>
+
+    <script>
+        const x = document.getElementById("main");
+        const y = x.getElementsByTagName("p");
+
+
+        document.getElementById("demo").innerHTML =
+            'The first paragraph (index 0) inside "main" is: ' + y[0].innerHTML;
+
+
+        // convert HTMLCollection to an array so I can loop over it
+
+        const title = document.getElementsByTagName('h2')[0]
+        const btns = Array.from(document.getElementsByTagName('button'))
+
+        title.style.color = 'blue'
+
+        btns.forEach((btn, index) => {
+            btn.addEventListener('click', function () {
+                document.getElementById("demo").innerHTML =
+                    'The first paragraph (index 0) inside "main" is: ' + y[index].innerHTML;
+
+            })
+        });
+
+
+    </script>
+
+</body>
+
+</html>
+
+<!-- 
+	HTML:
+    - Add 2 buttons to the html
+    
+    CSS:
+    - make the title blue
+    
+    JS:
+    - When the button 1 is clicked, the "demo" p get the value of the first p of the page
+    - When the button 2 is clicked, the "demo" p get the value of the second p of the page
+-->
